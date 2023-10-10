@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Exercício 1: Contador de vogais - HTML E JS</title>
+
+    <script>
+      // Questão b) Exemplo de uso com uma palavra recebida via input do usuário
+
+      function contadorVogais(palavra) {
+        // Todas as palavras serão convertidas em minúsculas para que não haja distinção caso a palavra seja digitada em maiúscula
+        palavra = palavra.toLowerCase();
+
+        // Iniciando o contador de vogais
+        let cont = 0;
+
+        // Especificando as vogais
+        const vogais = ['a', 'e', 'i', 'o', 'u'];
+
+        // Percorrendo os caracteres de acordo com o tamanho da palavra digitada
+        for (let p = 0; p < palavra.length; p++) {
+          const letra = palavra[p];
+
+          // Avaliando se a letra é uma vogal e incrementando o contador
+          if (vogais.includes(letra)) {
+            cont++;
+          }
+        }
+
+        // Retornando o contador de vogais
+        return cont;
+      }
+      // Criação da função contaVogal para que seja exibido posteriormente o que foi digitado pelo usúario após o clique do botão no formulário
+      function contaVogal() {
+        //armazenando a string digitada pelo usuário
+        palavra = document.getElementById('idString').value;
+
+        //contando o número de vogais na palavra
+        numerodeVogais = contadorVogais(palavra);
+
+        //O resultado é exibido na página
+        document.getElementById(
+          'idTexto'
+        ).innerHTML = `A palavra '${palavra}' tem ${numerodeVogais} vogais. `;
+      }
+    </script>
+  </head>
+
+  <body>
+    <form name="vogais">
+      Digite o texto:<input type="text" id="idString" /> <br /><button
+        type="button"
+        name="btn01"
+        id="idBotao"
+        onclick="contaVogal()"
+      >
+        Clique
+      </button>
+    </form>
+
+    <br /><span id="idTexto"></span><br />
+    <br /><span id="idVogais"></span>
+  </body>
+</html>
